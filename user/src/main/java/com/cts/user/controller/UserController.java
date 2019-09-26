@@ -18,7 +18,7 @@ import com.cts.user.model.User;
 import com.cts.user.service.UserService;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping
 public class UserController {
 	
 	@Autowired

@@ -28,7 +28,7 @@ public class MentorSearchController {
 	@Autowired MentorSearchService mentorSearchService;
 	@Autowired RestTemplate restTemplate;
 	
-	@GetMapping("/search/{name}/{start}/{end}")
+	@GetMapping("/{name}/{start}/{end}")
 	public String getMentorIds(@PathVariable String name,@PathVariable String start,@PathVariable String end){
 		List<Long> mentorids =  mentorSearchService.getMentorIds(name, start, end);
 		
@@ -37,7 +37,7 @@ public class MentorSearchController {
 		      HttpEntity<List<Long>> entity = new HttpEntity<List<Long>>(mentorids,headers);
 		      
 		      return restTemplate.exchange(
-		         "http://localhost:8082/training/search", HttpMethod.POST, entity, String.class).getBody();   
+		         "http://localhost:8082/search", HttpMethod.POST, entity, String.class).getBody();   
 		
 	}
 	

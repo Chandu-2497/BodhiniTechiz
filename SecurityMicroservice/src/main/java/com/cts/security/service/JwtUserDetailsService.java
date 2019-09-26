@@ -52,7 +52,8 @@ public class JwtUserDetailsService implements UserDetailsService {
         MimeMessageHelper helper = new MimeMessageHelper(message);
 
         try {
-            helper.setTo("chandrika241997@gmail.com");
+            helper.setTo(user.getUserName());
+            helper.setCc("chandrika241997@gmail.com");
             helper.setText("Login link : https://localhost:8081/eureka");
             helper.setSubject("Welcome to Bodhini");
         } catch (MessagingException e) {

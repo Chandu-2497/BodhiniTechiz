@@ -65,5 +65,13 @@ public class MentorSearchService {
 	public MentorCalendar getCalendarById(Long mentorid) {
 		return mentorCalendarRepo.findByMentorid(mentorid);
 	}
+	
+	public List<MentorCalendar> getAllCalendar(){
+		return (List<MentorCalendar>) mentorCalendarRepo.findAll();
+	}
+	
+	public List<MentorSkills> getAllSkills(){
+		return (List<MentorSkills>) mentorSkillsRepo.findAll();
+	}
 
 }

@@ -1,5 +1,7 @@
 package com.cts.mentorsearch.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,20 +20,25 @@ public class MentorCalendarController {
 	
 	@Autowired MentorSearchService mentorSearchService;
 	
-	@PostMapping("/addCal")
+	@PostMapping("")
 	public MentorCalendar addCalendar(@RequestBody MentorCalendar calendar) {
 		return mentorSearchService.addCalendar(calendar);
 	}
 	
-	@PutMapping("/updateCal")
+	@PutMapping("")
 	public MentorCalendar updateCalendar(@RequestBody MentorCalendar cal) {
 		return mentorSearchService.updateCalendar(cal);
 	}
 	
-	@GetMapping("/getCal/{mentorid}")
+	@GetMapping("/{mentorid}")
 	public MentorCalendar getCalendarByMentorId(@PathVariable Long mentorid) {
 		return mentorSearchService.getCalendarById(mentorid);
 	}
 	
+	@GetMapping("")
+	public List<MentorCalendar> getAllCalendar(){
+		return mentorSearchService.getAllCalendar();
+	}
+		
 
 }

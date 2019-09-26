@@ -1,5 +1,7 @@
 package com.cts.mentorsearch.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,19 +20,23 @@ public class MentorSkillsController {
 	
 	@Autowired MentorSearchService mentorSearchService;
 	
-	@GetMapping("/getSkill/{mentorid}")
+	@GetMapping("/{mentorid}")
 	public MentorSkills getSkillById(@PathVariable Long mentorid) {
 		return mentorSearchService.getSkillByID(mentorid);
 	}
 	
-	@PutMapping("/updateSkill")
+	@PutMapping("")
 	public MentorSkills updateSkill(@RequestBody MentorSkills skill) {
 		return mentorSearchService.upadteSkill(skill);
 	}
 	
-	@PostMapping("/addSkills")
+	@PostMapping("")
 	public MentorSkills addSkills(@RequestBody MentorSkills skill) {
 	 return mentorSearchService.addSkills(skill);
 	}
 
+	@GetMapping("")
+	public List<MentorSkills> getAllSkills(){
+		return mentorSearchService.getAllSkills();
+	}
 }

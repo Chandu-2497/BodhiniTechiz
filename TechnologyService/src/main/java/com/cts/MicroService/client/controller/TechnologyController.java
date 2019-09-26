@@ -18,32 +18,32 @@ import com.cts.MicroService.client.model.Technology;
 import com.cts.MicroService.client.service.TechnologyService;
 
 @RestController
-@RequestMapping("/technology")
+@RequestMapping
 public class TechnologyController {
 	@Autowired
 	TechnologyService technologyservice;
-@GetMapping("/list")
+@GetMapping("")
 public List<Technology> display()
 {
 return technologyservice.display();	
 }
-@PostMapping("/add")
+@PostMapping("")
 public String addtechnology(@RequestBody Technology technology)
 {
 technologyservice.add(technology);
 return "Added Successfully";
 }
-@RequestMapping(value = "/list/{id}", method = RequestMethod.GET)
+@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 public Optional<Technology> getlist(@PathVariable Long id) {
 	return technologyservice.getById(id);
 }
-@RequestMapping(value = "/remove/{id}", method = RequestMethod.DELETE)
+@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 public String deleteTech(@PathVariable Long id) {
 	technologyservice.delete(id);
 	return "Deleted Successfully";
 	
 }
-@RequestMapping(value = "/update", method = RequestMethod.PUT)
+@RequestMapping(value = "", method = RequestMethod.PUT)
 public String updatetechnology(@RequestBody Technology technology) {
 	 technologyservice.update(technology);
 	 return "Updated Successfully";

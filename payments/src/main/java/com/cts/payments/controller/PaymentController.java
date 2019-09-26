@@ -18,7 +18,7 @@ import com.cts.payments.model.Payment;
 import com.cts.payments.service.PaymentService;
 
 @RestController()
-@RequestMapping("/payments")
+@RequestMapping
 public class PaymentController {
 	
 	@Autowired

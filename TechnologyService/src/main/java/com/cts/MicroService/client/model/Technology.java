@@ -12,16 +12,17 @@ public class Technology {
 	@Id 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 private Long id;
 private String name;
-private String description;
+private float fee;
 public Technology() {
 	super();
 	// TODO Auto-generated constructor stub
 }
-public Technology(Long id, String name, String description) {
+public Technology(Long id, String name, float fee) {
 	super();
 	this.id = id;
 	this.name = name;
-	this.description = description;
+	this.fee = fee;
+	
 }
 public Long getId() {
 	return id;
@@ -35,12 +36,13 @@ public String getName() {
 public void setName(String name) {
 	this.name = name;
 }
-public String getDescription() {
-	return description;
+public float getFee() {
+	return fee;
 }
-public void setDescription(String description) {
-	this.description = description;
+public void setFee(float fee) {
+	this.fee = fee;
 }
+
 
 
 }

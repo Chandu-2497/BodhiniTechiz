@@ -17,32 +17,32 @@ import com.cts.MicroService.client.service.TrainingService;
 
 
 @RestController
-@RequestMapping("training")
+@RequestMapping
 public class TrainingController {
 	@Autowired
 	TrainingService trainingservice;
-	@GetMapping("/list")
+	@GetMapping("")
 	public List<Training> display()
 	{
 	return trainingservice.display();	
 	}
-	@PostMapping("/add")
+	@PostMapping("")
 	public String addtechnology(@RequestBody Training training)
 	{
 	trainingservice.add(training);
 	return "Added Successfully";
 	}
-	@RequestMapping(value = "/list/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public Optional<Training> getlist(@PathVariable Long id) {
 		return trainingservice.getById(id);
 	}
-	@RequestMapping(value = "/remove/{id}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	public String deleteTraining(@PathVariable Long id) {
 		trainingservice.delete(id);
 		return "Deleted Successfully";
 		
 	}
-	@RequestMapping(value = "/update", method = RequestMethod.PUT)
+	@RequestMapping(value = "", method = RequestMethod.PUT)
 	public String updatetraining(@RequestBody Training training) {
 		 trainingservice.update(training);
 		 return "Updated Successfully";
