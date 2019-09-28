@@ -4,6 +4,8 @@ import java.util.Objects;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.DisabledException;
@@ -19,8 +21,10 @@ import com.cts.security.service.JwtUserDetailsService;
 
 import com.cts.security.config.JwtTokenUtil;
 import com.cts.security.repository.UserRepository;
+//import com.cts.security.repository.PasswordResetTokenRepository;
 import com.cts.security.bean.JwtRequest;
 import com.cts.security.bean.JwtResponse;
+//import com.cts.security.bean.PasswordResetToken;
 import com.cts.security.bean.User;
 
 @RestController
@@ -29,7 +33,13 @@ import com.cts.security.bean.User;
 public class JwtAuthenticationController {
 
 	@Autowired
+	private JavaMailSender sender;
+	
+	@Autowired
 	private AuthenticationManager authenticationManager;
+	
+//	@Autowired
+//	private  PasswordResetTokenRepository pass;
 
 	@Autowired
 	private JwtTokenUtil jwtTokenUtil;
@@ -68,4 +78,6 @@ public class JwtAuthenticationController {
 			throw new Exception("INVALID_CREDENTIALS", e);
 		}
 	}
+	
+	
 }

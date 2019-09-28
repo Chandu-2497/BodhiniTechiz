@@ -64,4 +64,13 @@ public class JwtUserDetailsService implements UserDetailsService {
         return userDao.save(user);
      
 	}
+	
+	public void updatePassword(String password, Long userId) {
+        userDao.updatePassword(password, userId);
+    }
+
+	public User findByUserName(String email) {
+		// TODO Auto-generated method stub
+		return userDao.findByUserName(email);
+	}
 }
