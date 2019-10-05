@@ -48,7 +48,9 @@ public class PasswordForgotController {
             return "forgot-password";
         }
 
+    
         User user = userService.findByUserName(form.getEmail());
+        
         if (user == null){
             result.rejectValue("email", null, "We could not find an account for that e-mail address.");
             return "forgot-password";
@@ -68,6 +70,7 @@ public class PasswordForgotController {
         Map<String, Object> model = new HashMap<>();
         model.put("token", token);
         model.put("user", user);
+//        model.put("lastName", user.getLastName());
         model.put("signature", "https://bodhini.com");
         String url = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort();
         model.put("resetUrl", url + "/reset-password?token=" + token.getToken());

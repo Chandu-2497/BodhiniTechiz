@@ -16,6 +16,6 @@ public interface UserRepository extends CrudRepository<User,Long> {
 	public User findByUserNameIgnoreCase(String userName);
 
 	@Modifying
-    @Query("update User u set u.password = :password where u.id = :id")
+    @Query("update User u set u.password = :password, u.resetPasswordDate = NOW(), u.resetPassword = 1  where u.id = :id")
     void updatePassword(@Param("password") String password, @Param("id") Long id);
 }

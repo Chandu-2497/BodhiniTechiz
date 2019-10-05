@@ -54,7 +54,7 @@ public class JwtUserDetailsService implements UserDetailsService {
         try {
             helper.setTo(user.getUserName());
             helper.setCc("chandrika241997@gmail.com");
-            helper.setText("Login link : https://localhost:8081/eureka");
+            helper.setText("Login link : https://localhost:4200/login");
             helper.setSubject("Welcome to Bodhini");
         } catch (MessagingException e) {
            e.printStackTrace();

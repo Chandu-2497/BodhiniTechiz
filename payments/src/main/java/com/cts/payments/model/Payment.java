@@ -15,9 +15,9 @@ public class Payment {
 	private String txntype;
 	private float amount;
 	private String remarks;
-	private Long mentor_id;
+	private Long mentorId;
 	private String mentorname;
-	private Long training_id;
+	private Long trainingId;
 	private String skillname;
 	private float totalAmountToMentor;
 	public Payment(Long payment_id, String txntype, float amount, String remarks, Long mentor_id, String mentorname,
@@ -27,9 +27,9 @@ public class Payment {
 		this.txntype = txntype;
 		this.amount = amount;
 		this.remarks = remarks;
-		this.mentor_id = mentor_id;
+		this.mentorId = mentor_id;
 		this.mentorname = mentorname;
-		this.training_id = training_id;
+		this.trainingId = training_id;
 		this.skillname = skillname;
 		this.totalAmountToMentor = totalAmountToMentor;
 	}
@@ -72,11 +72,11 @@ public class Payment {
 	}
 
 	public Long getMentor_id() {
-		return mentor_id;
+		return mentorId;
 	}
 
 	public void setMentor_id(Long mentor_id) {
-		this.mentor_id = mentor_id;
+		this.mentorId = mentor_id;
 	}
 
 	public String getMentorname() {
@@ -88,11 +88,11 @@ public class Payment {
 	}
 
 	public Long getTraining_id() {
-		return training_id;
+		return trainingId;
 	}
 
 	public void setTraining_id(Long training_id) {
-		this.training_id = training_id;
+		this.trainingId = training_id;
 	}
 
 	public String getSkillname() {

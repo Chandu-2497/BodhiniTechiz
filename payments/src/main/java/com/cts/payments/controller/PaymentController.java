@@ -50,5 +50,14 @@ public class PaymentController {
 		 return "Deleted Sucessfully";
 	}
 	
+	@GetMapping("/mentorId/{mentorid}")
+	public List<Payment> getByMentorId(@PathVariable Long mentorid){
+		return paymentService.getByMentorId(mentorid);
+	}
+	
+	@GetMapping("/trainingId/{trainingid}")
+	public List<Payment> getByTrainingId(@PathVariable Long trainingid){
+		return paymentService.getByTrainingId(trainingid);
+	}
 
 }

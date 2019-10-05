@@ -52,4 +52,24 @@ public class TrainingController {
 	public List<Training> getAllTrainings(@RequestBody List<Long> mentorids){
 		return trainingservice.getAllTrainings(mentorids);
 	}
+	
+	@GetMapping("/userCurrent/{userid}")
+	public List<Training> getAllCurrentByUserId(@PathVariable Long userid){
+		return trainingservice.getAllCurrentByUserId(userid);
+	}
+	
+	@GetMapping("/mentorCurrent/{mentorid}")
+	public List<Training> getAllCurrentByMentorId(@PathVariable Long mentorid){
+		return trainingservice.getAllCurrentByMentorId(mentorid);
+	}
+	
+	@GetMapping("/userCompleted/{userid}")
+	public List<Training> getAllCompletedtByUserId(@PathVariable Long userid){
+		return trainingservice.getAllCompletedByUserId(userid);
+	}
+	
+	@GetMapping("/mentorCompleted/{mentorid}")
+	public List<Training> getAllCompletedByMentorId(@PathVariable Long mentorid){
+		return trainingservice.getAllCompletedByMentorId(mentorid);
+	}
 }

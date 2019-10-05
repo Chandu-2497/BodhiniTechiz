@@ -41,4 +41,20 @@ public class TrainingService {
 			return trainingrepository.findByMentorIdIn(mentorids);
 		}
 		
+		public List<Training> getAllCurrentByUserId(Long userid){
+			return trainingrepository.findCurrentByUserId(userid);
+		}
+		
+		public List<Training> getAllCurrentByMentorId(Long mentorid){
+			return trainingrepository.findCurrentByMentorId(mentorid);
+		}
+		
+		public List<Training> getAllCompletedByUserId(Long userid){
+			return trainingrepository.findCompletedByUserId(userid);
+		}
+		
+		public List<Training> getAllCompletedByMentorId(Long mentorid){
+			return trainingrepository.findCompletedByMentorId(mentorid);
+		}
+		
 }
